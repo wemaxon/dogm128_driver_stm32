@@ -18,7 +18,6 @@ amount = 256
 
 import PNG_to_binary_Bitmap as PNGtbp
 
-import numpy as np
 import cv2
 
 
