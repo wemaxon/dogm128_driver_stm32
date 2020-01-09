@@ -1,0 +1,2 @@
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v142:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0
+Debug|Win32|G:\Daten\Hobby\Inforelektrikbau\STM32\EA_DOGM_128W\dogm128_driver_stm32\dogm_display_driver_test\|
