@@ -9,7 +9,7 @@ using namespace std;
 uint8_t Width = 5;
 uint8_t Height = 5;
 
-uint8_t bitmap[] = { 0xF4, 0xBD, 0x29 };
+uint8_t bitmap[] = { 0x84, 0x20, 0x08, 0x00 };
 
 
 

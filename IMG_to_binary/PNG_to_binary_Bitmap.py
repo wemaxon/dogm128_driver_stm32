@@ -9,7 +9,7 @@ Created on Wed Dec 11 00:34:44 2019
 
 #Set Parameters for img
 ########################################################
-file_path = 'black.png'
+file_path = '33.bmp'
 
 dimensionX = 5
 dimensionY = 5
