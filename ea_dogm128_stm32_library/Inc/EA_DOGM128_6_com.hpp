@@ -3,13 +3,15 @@
 
 
 #include "stm32f4xx_hal.h"
-#include "main.hpp"
 
 
 
 class EA_DOGM_128
 {
 	public:
+		uint8_t Width = 128;
+		uint8_t Height = 64;
+
 		void init(SPI_HandleTypeDef* in_hspi);
 		void updateBuffer();
 		void clear();

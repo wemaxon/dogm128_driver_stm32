@@ -1,6 +1,7 @@
 #include "EA_DOGM128_6_com.hpp"
 #include "stm32f4xx_hal.h"
 
+#include "main.hpp"
 
 void EA_DOGM_128::init(SPI_HandleTypeDef* in_hspi)
 {
