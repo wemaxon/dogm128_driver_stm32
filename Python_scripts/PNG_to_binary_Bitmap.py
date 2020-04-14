@@ -9,10 +9,13 @@ Created on Wed Dec 11 00:34:44 2019
 
 #Set Parameters for img
 ########################################################
-file_path = '255.bmp'
+#Insert the Image Path and Name
+#EXAMPLE img_path = 'IMAGES/marcel.png'
+img_path = 'IMAGES/'
+img_name = 'camaro.jpg'
 
-dimensionX = 6
-dimensionY = 5
+dimensionX = 128
+dimensionY = 64
 
 Threshhold = 127
 ########################################################
@@ -40,8 +43,8 @@ def process_image(image, dimensionX, dimensionY, Threshhold):
     
     retval, img_binary = cv2.threshold(img_resized,Threshhold,255,cv2.THRESH_BINARY)
     
-    img_name = "Monochrome_Bitmap (" + str(file_path) + ").bmp"
-    cv2.imwrite(img_name, img_binary)
+    out_img_name = img_path + '/' + "Monochrome_Bitmap (" + img_name + ").bmp"
+    cv2.imwrite(out_img_name, img_binary)
     
     return img_binary
 
@@ -73,8 +76,8 @@ def img_to_hex(image):
                 bit_arr.append(0)
     return bit_arr
 
-def save_hex_to_file(bit_arr, path, dimensionX, dimensionY):
-    Out_File_name = "Binary_Data (" + str(file_path) + ").txt"
+def save_hex_to_file(bit_arr, dimensionX, dimensionY):
+    Out_File_name = img_path + '/' + "Binary_Data (" + img_name + ").txt"
     Out_File = open(Out_File_name, "w+")
     Out_File.write("Image to Binary Bitmap Converter \nBuilt for low resoultion monochrome displays \nWritten by Maximilian Weber \n\n\n")   
     Out_File.write("Image Dimensions: \nX= ")
@@ -105,10 +108,10 @@ def save_hex_to_file(bit_arr, path, dimensionX, dimensionY):
      
 
 def main():
-    img_read = cv2.imread(file_path, 0)
+    img_read = cv2.imread(img_path + img_name, 0)
     image = process_image(img_read, dimensionX, dimensionY, Threshhold)
     Hex_Data = img_to_hex(image)
-    save_hex_to_file(Hex_Data, file_path,dimensionX, dimensionY)
+    save_hex_to_file(Hex_Data, dimensionX, dimensionY)
     
 if __name__ == "__main__":
     main()
