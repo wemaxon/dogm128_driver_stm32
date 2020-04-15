@@ -4,7 +4,6 @@ This is a driver library to control the Electronics Assembly DOGM128 monochrome 
 ## Class diagram of the driver
 ![class diagram](/documentation/class_diagram.png)
 
-## Installation
 
 ## Copyright & copyright
 
