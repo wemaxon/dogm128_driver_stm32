@@ -1,26 +1,40 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Dec 11 00:34:44 2019
+   Copyright (C) 2019,2020  Maximilian Anton Weber
+   
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
 
-@author: Maximilian Anton Weber
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
+
+
 
 
 
 #Set Parameters for img
 ########################################################
 #Insert the Image Path and Name
-#EXAMPLE img_path = 'IMAGES/marcel.png'
-img_path = 'IMAGES/'
-img_name = 'camaro.jpg'
+img_path = 'IMAGES/'                #EXAMPLE = 'IMAGES/'
+img_name = 'camaro.jpg'             #EXAMPLE = 'camaro.jpg'
 
 dimensionX = 128
 dimensionY = 64
 
 Threshhold = 127
 ########################################################
-import cv2
 
+
+
+import cv2
 
 
 

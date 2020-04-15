@@ -1,13 +1,29 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jan  9 17:36:30 2020
+   Copyright (C) 2019,2020  Maximilian Anton Weber
+   
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
 
-@author: Max
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
+
+
+
+
+
 ########################################################
 #Insert the Path and Font Name
-font_path = 'Fonts/'
-font_name = 'smallFT'
+font_path = 'Fonts/'                    #EXAMPLE = 'Fonts/'
+font_name = 'smallFT'                   #EXAMPLE = 'smallFT'
 
 
 dimensionX = 6
@@ -19,22 +35,22 @@ amount = 256
 
 ########################################################
 
-import PNG_to_binary_Bitmap as PNGtbp
+import Image_to_Hex_data as ItH
 import cv2
 
 
 letters_list = []
 
 for i in range(amount):
-    img_name = font_path + '/' + str(i) + ".bmp"
+    img_name = font_path + font_name + '/' + str(i) + ".bmp"
     img_read = cv2.imread(img_name, 0)
-    letter_bytes = PNGtbp.img_to_hex(img_read)
+    letter_bytes = ItH.img_to_hex(img_read)
     print(letter_bytes)
     for k in range(len(letter_bytes)):
         letters_list.append(letter_bytes[k])
 
 
-Out_File_name = font_path +'.txt'
+Out_File_name = font_path + font_name +'.txt'
 Out_File = open(Out_File_name, "w+")
 Out_File.write("Font Hex from bmp Generator \nBuilt for low resoultion monochrome displays \nWritten by Maximilian Weber \n\n\n")   
 Out_File.write("Font Dimensions: \nX= ")
