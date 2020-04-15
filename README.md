@@ -8,8 +8,7 @@ This is a driver library to control the Electronics Assembly DOGM128 monochrome 
 
 ## Copyright & copyright
 
-© Maximilian Weber
-Copyright (C) 2019,2020  Maximilian Anton Weber
+Copyright © 2019,2020  Maximilian Anton Weber
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
