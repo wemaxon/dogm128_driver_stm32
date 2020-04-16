@@ -31,7 +31,7 @@ MyDisplay.writeString("HELLO WORLD", &smallFT, 0, 0);
 //writes Pixels from Buffer to Display again
 MyDisplay.updateBuffer();
 
-```cpp
+```
 
 
 
