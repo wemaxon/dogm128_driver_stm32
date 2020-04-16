@@ -6,7 +6,7 @@ This is a driver library to control the Electronics Assembly DOGM128 monochrome 
 
 ## How to use
 
-```
+```cpp
 //includes library header
 #include "Monochrome_Display.hpp"
 
