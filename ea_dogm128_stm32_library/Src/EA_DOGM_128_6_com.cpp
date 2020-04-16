@@ -20,9 +20,23 @@
 
 #include "main.hpp"
 
-void EA_DOGM_128::init(SPI_HandleTypeDef* in_hspi)
+void EA_DOGM_128::init(SPI_HandleTypeDef* in_hspi, GPIO_TypeDef* Port_CS, uint16_t Pin_CS, GPIO_TypeDef* Port_A0, uint16_t Pin_A0, GPIO_TypeDef* Port_RST, uint16_t Pin_RST)
 {
 	hspi = in_hspi;
+
+	port_CS = Port_CS;
+	pin_CS = Pin_CS;
+	port_A0 = Port_A0;
+	pin_A0 = Pin_A0;
+	port_RST = Port_RST;
+	pin_RST = Pin_RST;
+
+
+	// RESET
+	HAL_GPIO_WritePin(Port_RST, Pin_RST , GPIO_PIN_RESET);
+	HAL_Delay(100);
+	HAL_GPIO_WritePin(Port_RST, Pin_RST , GPIO_PIN_SET);
+	HAL_Delay(100);
 
 	send_Command(0x40);	// Display start line = 0
 	send_Command(0xA0);	// ADC normal
@@ -39,7 +53,7 @@ void EA_DOGM_128::init(SPI_HandleTypeDef* in_hspi)
 	send_Command(0x00);	// Indicator Mode
 	send_Command(0xAF);	// Display on
 
-	HAL_Delay(100);
+	HAL_Delay(10);
 
 	clear();	//clear display
 }

@@ -29,7 +29,7 @@
 class Monochrome_Display
 {
 	public:
-		void init(SPI_HandleTypeDef* in_hspi);
+		void init(SPI_HandleTypeDef* in_hspi, GPIO_TypeDef* Port_CS, uint16_t Pin_CS, GPIO_TypeDef* Port_A0, uint16_t Pin_A0, GPIO_TypeDef* Port_RST, uint16_t Pin_RST);
 		void clear();
 		void updateBuffer();
 		void setPixel(uint8_t xpos, uint8_t ypos, bool bstate);

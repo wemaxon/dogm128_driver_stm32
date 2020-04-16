@@ -24,9 +24,9 @@
  *
  * @param SPI handle structure
  */
-void Monochrome_Display::init(SPI_HandleTypeDef* in_hspi)
+void Monochrome_Display::init(SPI_HandleTypeDef* in_hspi, GPIO_TypeDef* Port_CS, uint16_t Pin_CS, GPIO_TypeDef* Port_A0, uint16_t Pin_A0, GPIO_TypeDef* Port_RST, uint16_t Pin_RST)
 {
-	Display.init(in_hspi);
+	Display.init(in_hspi, Port_CS, Pin_CS, Port_A0, Pin_A0, Port_RST, Pin_RST);
 }
 
 

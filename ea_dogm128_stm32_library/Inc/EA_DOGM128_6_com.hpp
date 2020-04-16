@@ -32,7 +32,7 @@ class EA_DOGM_128
 		uint8_t Width = 128;
 		uint8_t Height = 64;
 
-		void init(SPI_HandleTypeDef* in_hspi);
+		void init(SPI_HandleTypeDef* in_hspi, GPIO_TypeDef* Port_CS, uint16_t Pin_CS, GPIO_TypeDef* Port_A0, uint16_t Pin_A0, GPIO_TypeDef* Port_RST, uint16_t Pin_RST);
 		void updateBuffer();
 		void clear();
 		bool setPixel(uint8_t xpos, uint8_t ypos, bool bstate);
@@ -40,6 +40,13 @@ class EA_DOGM_128
 
 	private:
 		SPI_HandleTypeDef* hspi;
+		GPIO_TypeDef* port_CS;
+		uint16_t pin_CS;
+		GPIO_TypeDef* port_A0;
+		uint16_t pin_A0;
+		GPIO_TypeDef* port_RST;
+		uint16_t pin_RST;
+
 		uint8_t buffer[128][8] = {0};
 
 		void send_Data(uint8_t byte);
