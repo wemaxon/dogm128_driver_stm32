@@ -22,7 +22,7 @@
 
 ########################################################
 #Insert the Path and Font Name
-font_path = 'Fonts/'                    #EXAMPLE = 'Fonts/'
+font_path = 'FONTS/'                    #EXAMPLE = 'FONTS/'
 font_name = 'smallFT'                   #EXAMPLE = 'smallFT'
 
 

@@ -4,6 +4,37 @@ This is a driver library to control the Electronics Assembly DOGM128 monochrome 
 ## Class diagram of the driver
 ![class diagram](/documentation/class_diagram.png)
 
+## How to use
+
+```
+//includes library header
+#include "Monochrome_Display.hpp"
+
+//creates Display Object
+Monochrome_Display MyDisplay;
+
+//Initializes Display, pass SPI Handler and Ports and Pins of Chip Select, A0  and RESET
+MyDisplay.init(&hspi1, CS_GPIO_Port, CS_Pin, A0_GPIO_Port, A0_Pin, OERST_GPIO_Port, OERST_Pin);
+
+//draws Image at Position 0,0
+MyDisplay.drawImage(&camaro, 0, 0);
+
+//writes Pixels from Buffer to Display
+MyDisplay.updateBuffer();
+
+//clears Display
+MyDisplay.clear();
+
+//writes String to Display at position 0,0
+MyDisplay.writeString("HELLO WORLD", &smallFT, 0, 0);
+
+//writes Pixels from Buffer to Display again
+MyDisplay.updateBuffer();
+
+```
+
+
+
 
 ## Copyright & copyright
 
