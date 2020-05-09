@@ -34,6 +34,7 @@ class EA_DOGM_128
 
 		void init(SPI_HandleTypeDef* in_hspi, GPIO_TypeDef* Port_CS, uint16_t Pin_CS, GPIO_TypeDef* Port_A0, uint16_t Pin_A0, GPIO_TypeDef* Port_RST, uint16_t Pin_RST);
 		void updateBuffer();
+		void clearBuffer();
 		void clear();
 		bool setPixel(uint8_t xpos, uint8_t ypos, bool bstate);
 

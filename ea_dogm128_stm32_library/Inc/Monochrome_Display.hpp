@@ -31,9 +31,11 @@ class Monochrome_Display
 	public:
 		void init(SPI_HandleTypeDef* in_hspi, GPIO_TypeDef* Port_CS, uint16_t Pin_CS, GPIO_TypeDef* Port_A0, uint16_t Pin_A0, GPIO_TypeDef* Port_RST, uint16_t Pin_RST);
 		void clear();
+		void clearBuffer();
 		void updateBuffer();
 		void setPixel(uint8_t xpos, uint8_t ypos, bool bstate);
 		void drawLine(uint8_t Ax,uint8_t Ay,uint8_t Bx,uint8_t By, bool binverted = false);
+		void fillRectangle(uint8_t Ax,uint8_t Ay,uint8_t Bx,uint8_t By, bool binverted = false);
 		void drawImage(const Image* Bitmap, uint8_t xpos, uint8_t ypos, bool binverted = false);
 		void writeString(const std::string& input, const Font* font, uint8_t xpos, uint8_t ypos, bool binverted = false);
 		void test();

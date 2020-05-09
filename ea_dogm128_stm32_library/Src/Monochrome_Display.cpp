@@ -47,6 +47,15 @@ void Monochrome_Display::updateBuffer()
 	Display.updateBuffer();
 }
 
+/**
+ * clears only internal Buffer, does not update Display
+ */
+void Monochrome_Display::clearBuffer()
+{
+	Display.clearBuffer();
+}
+
+
 
 /**
  * Sets a certain pixel in the display buffer
@@ -61,30 +70,17 @@ void Monochrome_Display::setPixel(uint8_t xpos, uint8_t ypos, bool bstate)
 
 
 /**
- * Draws a line from point A to point B in the display buffer
+ * Draws a line from point A to point B in the display buffer.
+ * Line must be horizontal or vertical
  *
  * @param Ax,Ay,Bx,By X- and Y-coordinates of the Corners A and B
- * @param binverted Inverts line if true
+ * @param binverted Inverts line if true. defaults to false
  */
 void Monochrome_Display::drawLine(uint8_t Ax,uint8_t Ay,uint8_t Bx,uint8_t By, bool binverted)
 {
 	if (Ay == By) //vertikale Linie
 	{
-		for (int var = 0; var < Ax-Bx; ++var)
-		{
-			if(binverted)
-			{
-				setPixel(Ax, var, false);
-			}
-			else
-			{
-				setPixel(Ax, var, true);
-			}
-		}
-	}
-	if (Ax == Bx) //horizontale Linie
-	{
-		for (int var = 0; var < Ay-By; ++var)
+		for (int var = Ax; var <= Bx; ++var)
 		{
 			if (binverted)
 			{
@@ -96,7 +92,40 @@ void Monochrome_Display::drawLine(uint8_t Ax,uint8_t Ay,uint8_t Bx,uint8_t By, b
 			}
 		}
 	}
+	if (Ax == Bx) //horizontale Linie
+	{
+
+		for (int var = Ay; var < By; ++var)
+		{
+			if(binverted)
+			{
+				setPixel(Ax, var, false);
+			}
+			else
+			{
+				setPixel(Ax, var, true);
+			}
+		}
+	}
 }
+
+/**
+ * Fills a rectangle spanned by point A and B
+ *
+ * @param Ax,Ay,Bx,By X- and Y-coordinates of the Corners A and B
+ * @param binverted Inverts line if true. defaults to false
+ */
+void Monochrome_Display::fillRectangle(uint8_t Ax,uint8_t Ay,uint8_t Bx,uint8_t By, bool binverted)
+{
+	for (int x = Ax; x <= Bx; ++x)
+	{
+		for (int y = Ay; y < By; ++y)
+		{
+			setPixel(x,y, !binverted);
+		}
+	}
+}
+
 
 
 /**

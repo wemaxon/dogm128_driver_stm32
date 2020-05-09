@@ -15,10 +15,10 @@
  *    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+#include <main.hpp>
 #include "EA_DOGM128_6_com.hpp"
 #include "stm32f4xx_hal.h"
 
-#include "main.hpp"
 
 void EA_DOGM_128::init(SPI_HandleTypeDef* in_hspi, GPIO_TypeDef* Port_CS, uint16_t Pin_CS, GPIO_TypeDef* Port_A0, uint16_t Pin_A0, GPIO_TypeDef* Port_RST, uint16_t Pin_RST)
 {
@@ -91,7 +91,8 @@ void EA_DOGM_128::updateBuffer()
 
 }
 
-void EA_DOGM_128::clear()
+
+void EA_DOGM_128::clearBuffer()
 {
 	for (int page = 0; page < 8; ++page)
 	{
@@ -100,7 +101,11 @@ void EA_DOGM_128::clear()
 			buffer[column][page] = 0x00;
 		}
 	}
+}
 
+void EA_DOGM_128::clear()
+{
+	clearBuffer();
 	updateBuffer();
 }
 
