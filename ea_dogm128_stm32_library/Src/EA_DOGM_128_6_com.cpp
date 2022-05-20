@@ -15,7 +15,6 @@
  *    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <main.hpp>
 #include "EA_DOGM128_6_com.hpp"
 #include "stm32f4xx_hal.h"
 
@@ -60,18 +59,18 @@ void EA_DOGM_128::init(SPI_HandleTypeDef* in_hspi, GPIO_TypeDef* Port_CS, uint16
 
 void EA_DOGM_128::send_Data(uint8_t byte)
 {
-	HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin , GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(port_CS, pin_CS , GPIO_PIN_RESET);
 	HAL_SPI_Transmit(hspi, &byte,1,100);
-	HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin , GPIO_PIN_SET);
+	HAL_GPIO_WritePin(port_CS, pin_CS , GPIO_PIN_SET);
 }
 
 void EA_DOGM_128::send_Command(uint8_t byte)
 {
-	HAL_GPIO_WritePin(A0_GPIO_Port, A0_Pin , GPIO_PIN_RESET);	// Take A0 Low for Command
+	HAL_GPIO_WritePin(port_A0, pin_A0 , GPIO_PIN_RESET);	// Take A0 Low for Command
 
 	send_Data(byte);
 
-	HAL_GPIO_WritePin(A0_GPIO_Port, A0_Pin , GPIO_PIN_SET);		// Take A0 High again
+	HAL_GPIO_WritePin(port_A0, pin_A0 , GPIO_PIN_SET);		// Take A0 High again
 }
 
 void EA_DOGM_128::updateBuffer()
